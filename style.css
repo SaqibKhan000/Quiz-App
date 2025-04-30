@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Syne:wght@400..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(10, 74, 131);
+    z-index: -2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 35px 0 20px 0;
+    color: white;
+    font-family: "Press Start 2P", system-ui;
+}
+
+h2 {
+    color: white;
+    margin: 5px 0;
+    font-size: 25px;
+}
+
+h5 {
+    color: white;
+    margin: 10px 0 20px 0;
+    font-size: 20px;
+}
+
+.box {
+    width: 550px;
+    color: white;
+    text-align: center;
+    border: 2px solid white;
+    background-color: rgb(4, 38, 68);
+}
+
+h3 {
+    font-size: 25px;
+    padding: 25px;
+    width: 100%;
+}
+
+hr {
+    background-color: white;
+}
+
+h4 {
+    margin: 5px 0 20px 0;
+    font-size: 25px;
+}
+
+.buttons {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    margin: 10px 0;
+    font-size: 20px;
+    width: 90%;
+    text-align: start;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: all .3s;
+}
+
+button:hover {
+    background-color: rgba(7, 48, 172, 0.5);
+}
+
+button:active {
+    scale: .9;
+}
+
+h6 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.icon i {
+    color: red;
+    font-size: 35px;
+    margin: 15px 10px;
+}
+
+form {
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+}
+
+input {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid white;
+    background-color: rgb(5, 45, 80);
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+}
+
+input::placeholder {
+    color: wheat;
+}
+
+textarea {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid white;
+    background-color: rgb(5, 45, 80);
+    margin: 10px 0;
+    font-weight: 500;
+    color: white;
+    border-radius: 5px;
+}
+
+textarea::placeholder {
+    color: wheat;
+}
+
+input[type="submit"] {
+    color: white;
+    background-color: rgb(4, 4, 95);
+    border: 1px solid wheat;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 570px) {
+
+    .box,
+    form {
+        width: 95%;
+    }
+
+    h1,
+    h2,
+    h5 {
+        text-align: center;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h3 {
+        font-size: 19px;
+    }
+
+    form input[type="text"] {
+        font-size: 16px;
+    }
+
+    form textarea {
+        font-size: 16px;
+    }
+}
