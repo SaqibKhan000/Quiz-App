@@ -102,44 +102,79 @@ const quizQuestions = [
 ];
 
 
+let hearts = ['<i class="fa-solid fa-heart"></i>', '<i class="fa-solid fa-heart"></i>', '<i class="fa-solid fa-heart"></i>', '<i class="fa-solid fa-heart"></i>', '<i class="fa-solid fa-heart"></i>'];
 
 let h3 = document.querySelector("h3");
 let buttons = document.querySelectorAll("button");
+let scoreNum = document.querySelector("h6");
+let quesCount = document.querySelector(".quesCount");
+let icons = document.querySelector(".icon");
+let score = 0;
 let count = 0;
 
-function showQuestion(){
+function showQuestion() {
+    if (count >= quizQuestions.length) {
+        alert("Your quiz Completed successfully 🎉🎉 and you got ✨" + score + "/20" + "✨ scores");
+        return;
+    }
     h3.innerText = quizQuestions[count].question;
-    for(let i = 0; i < buttons.length; i++){
+    for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = quizQuestions[count].options[i];
     }
 }
 
 
+function check(myOption) {
+    let correctAnswer = quizQuestions[count].answer;
 
-function check(myOption){
-    let correctOption = "";
-    for(let i = 0; i < buttons.length; i++){
-        buttons[i].disabled = true;
+
+    if (myOption.innerText == quizQuestions[count].answer) {
+        myOption.style.background = "green";
+        score++;
+        scoreNum.innerText = "Score: " + (score);
+    } else {
+        myOption.style.background = "red";
+        hearts.pop();
+        icons.innerHTML = hearts.join("");
+        let heartIcons = icons.querySelectorAll("i");
+        heartIcons.forEach(icon => {
+            icon.classList.add("animate-shake");
+            setTimeout(() => {
+                icon.classList.remove("animate-shake");
+            }, 500);
+        });
+        if (hearts.length === 0) {
+            alert("Game Over😌! you got " + score + "/ 20 Scores.");
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.background = "transparent";
+            });
+            return;
+        }
+        buttons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.innerText === correctAnswer) {
+                btn.style.background = "green";
+            }
+        });
     }
-    if(myOption.innerText == quizQuestions[count].answer){
-       myOption.style.background = "green";
-   }else{
-    myOption.style.background = "red";
-    for(let i = 0; i < buttons.length; i++){
-        buttons[i].disabled = true;
-    }
-   }
 
 
-   setTimeout(() => {
-    for(let i = 0; i < buttons.length; i++){
-        buttons[i].style.background = "transparent";
-        buttons[i].disabled = false;
+    setTimeout(() => {
 
-    }
-   count++;
-   showQuestion();
-   }, 1000);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].style.background = "transparent";
+            buttons[i].disabled = false;
+
+        }
+
+        count++;
+        showQuestion();
+        quesCount.innerText = count + 1 <= quizQuestions.length ? count + 1 : quizQuestions.length;
+    }, 1000);
 }
 
-onload = showQuestion();
+onload = function () {
+    showQuestion();
+    icons.innerHTML = hearts.join("");;
+};

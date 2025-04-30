@@ -82,7 +82,7 @@ button {
 }
 
 button:hover {
-    background-color: rgba(7, 48, 172, 0.5);
+    background-color: rgb(10, 74, 131);
 }
 
 button:active {
@@ -155,7 +155,9 @@ input:focus {
 textarea:focus {
     outline: none;
 }
-
+i {
+    transition: all 1s ease;
+}
 @media screen and (max-width: 570px) {
 
     .box,
@@ -198,3 +200,25 @@ textarea:focus {
         font-size: 16px;
     }
 }
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); color: red; }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .animate-pop {
+    animation: pop 0.5s ease;
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s ease;
+  }
